@@ -1,0 +1,26 @@
+:host {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.resolution-selector {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  background-color: rgb(20, 21, 26);
+  border-radius: 4px;
+
+  &-item {
+    padding: 10px;
+    color: #ececec;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &--selected {
+      color: rgb(240, 185, 11);
+    }
+  }
+}

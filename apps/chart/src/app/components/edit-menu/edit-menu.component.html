@@ -1,0 +1,37 @@
+<div class="edit-container">
+  <div class="edit-container-header">
+    <div class="edit-container-header-text">Select interval</div>
+    <div
+      class="edit-container-header-button"
+      *ngIf="!editMode"
+      (click)="onEdit()"
+    >
+      Edit
+    </div>
+    <div
+      class="edit-container-header-button"
+      *ngIf="editMode"
+      (click)="onSave()"
+    >
+      Save
+    </div>
+  </div>
+  <div class="edit-container-option">
+    <div
+      class="edit-container-option-item-wrapper"
+      *ngFor="let option of resolutionOptions"
+      [class.edit-container-option-item-wrapper--selected]="isOptionSelected(option)"
+      (click)="toggleStatus(option)"
+    >
+      <div class="edit-container-option-item">{{ option.label }}</div>
+      <div class="edit-container-option-icon" *ngIf="editMode">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M20.5 7.42L9.41 18.5 8 17.09l-5-5 1.41-1.42 5 5L19.08 6l1.42 1.42z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

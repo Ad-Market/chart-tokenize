@@ -1,0 +1,33 @@
+<div class="resolution-selector">
+  <div
+    class="resolution-selector-item"
+    *ngFor="let option of showOptions"
+    [class.resolution-selector-item--selected]="selectedOption === option.value"
+    (click)="onSelectResolution(option)"
+  >
+    {{ option.label }}
+  </div>
+  <div class="resolution-selector-item" (click)="toggleMenu()" #btn id="btn">
+    <span class="resolution-selector-item--selected" *ngIf="shouldShowSelectedOption()">{{ selectedOption }}</span>
+    <mat-icon
+      *ngIf="!showMenu"
+      aria-hidden="false"
+      aria-label="Example home icon"
+      >arrow_drop_down</mat-icon
+    >
+    <mat-icon
+      *ngIf="showMenu"
+      aria-hidden="false"
+      aria-label="Example home icon"
+      >arrow_drop_up</mat-icon
+    >
+  </div>
+</div>
+
+<ng-template #editTemplate>
+  <nhattt-edit-menu
+    [showOptions]="showOptions"
+    (chooseOption)="onChooseOption($event)"
+    (save)="onSave($event)"
+  ></nhattt-edit-menu>
+</ng-template>
